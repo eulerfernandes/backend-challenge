@@ -1,7 +1,5 @@
 # Desafio Backend - Labzz
 
-## Introdução
-Bem-vindo ao desafio técnico para a vaga de backend na Labzz! Este projeto visa avaliar suas habilidades em arquitetura de software, segurança, escalabilidade e boas práticas de desenvolvimento. Nosso objetivo é encontrar profissionais altamente capacitados para integrar nosso time e contribuir para o crescimento da empresa.
 
 ## Objetivo do Projeto
 Desenvolver um backend escalável e seguro para um sistema de **chat em tempo real**, utilizando **boas práticas de desenvolvimento** e garantindo alta disponibilidade.
