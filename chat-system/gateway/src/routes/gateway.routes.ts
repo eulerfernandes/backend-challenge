@@ -3,11 +3,16 @@ import { authMiddleware } from "../middlewares/auth.middleware";
 
 const router = Router();
 
+// Rota pública
 router.get("/status", (req, res) => {
   res.json({ message: "Gateway está rodando!" });
 });
 
-router.use("/api", authMiddleware, (req, res) => {
+// Middleware aplicado à rota "/api"
+router.use("/api", authMiddleware);
+
+// Rota protegida
+router.get("/api/protegida", (req, res) => {
   res.json({ message: "Rota protegida pelo Gateway!" });
 });
 

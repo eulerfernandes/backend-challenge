@@ -8,8 +8,10 @@ router.get("/status", (req, res) => {
   res.json({ message: "Gateway está rodando!" });
 });
 
-// Middleware + rota protegida
-router.use("/api", authMiddleware, (req, res) => {
+// Middleware aplicado à rota protegida
+router.use("/api", authMiddleware);
+
+router.get("/api/protegida", (req, res) => {
   res.json({ message: "Rota protegida pelo Gateway!" });
 });
 

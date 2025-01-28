@@ -12,7 +12,7 @@ export const authMiddleware = (
     return;
   }
 
-  // Exemplo: Validação do token
+  // Validação de token (exemplo)
   if (token !== "meu-token-secreto") {
     res.status(403).json({ error: "Forbidden" });
     return;
