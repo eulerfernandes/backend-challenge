@@ -1,0 +1,73 @@
+version: '3.9'
+
+services:
+  auth-service:
+    build:
+      context: ./services/auth
+    ports:
+      - "${AUTH_PORT}:3001"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - backend
+
+  users-service:
+    build:
+      context: ./services/users
+    ports:
+      - "${USERS_PORT}:3002"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - backend
+
+  gateway:
+    build:
+      context: ./gateway
+    ports:
+      - "${GATEWAY_PORT}:3000"
+    env_file:
+      - .env
+    depends_on:
+      - auth-service
+      - users-service
+    networks:
+      - backend
+
+  postgres:
+    image: postgres:14
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - backend
+
+  redis:
+    image: redis:7
+    ports:
+      - "${REDIS_PORT}:6379"
+    volumes:
+      - redis_data:/data
+      - ./infra/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  backend:
