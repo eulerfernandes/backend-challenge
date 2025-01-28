@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "CommonJS",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "paths": {
+        "@auth/*": ["services/auth/src/*"],
+        "@users/*": ["services/users/src/*"],
+        "@chat/*": ["services/chat/src/*"]
+      }
+    },
+    "include": ["services/**/src", "gateway/src"],
+    "exclude": ["node_modules"]
+  }
+  
