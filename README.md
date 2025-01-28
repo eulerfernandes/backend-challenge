@@ -109,6 +109,5 @@ Para rodar os testes unitários:
 - Clareza e completude da documentação
 - Uso de boas práticas de arquitetura e design patterns
 
-## Conclusão
-Este desafio é uma oportunidade para demonstrar sua experiência técnica e habilidade de desenvolver soluções escaláveis e seguras. Buscamos desenvolvedores comprometidos e apaixonados por tecnologia. Boa sorte! 🚀
+
 
