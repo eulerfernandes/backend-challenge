@@ -16,7 +16,11 @@
       "@auth/*": ["services/auth/src/*"],
       "@users/*": ["services/users/src/*"],
       "@chat/*": ["services/chat/src/*"]
-    }
+    },
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false
   },
   "include": ["services/**/src", "gateway/src"],
   "exclude": ["node_modules"]
