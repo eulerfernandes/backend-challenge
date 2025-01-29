@@ -4,8 +4,9 @@ services:
   auth-service:
     build:
       context: ./services/auth
+      dockerfile: Dockerfile # O Dockerfile deve estar em ./services/auth/
     ports:
-      - "${AUTH_PORT}:3001"
+      - "${AUTH_PORT:-3001}:3001"
     env_file:
       - .env
     depends_on:
@@ -17,8 +18,9 @@ services:
   users-service:
     build:
       context: ./services/users
+      dockerfile: Dockerfile # O Dockerfile deve estar em ./services/users/
     ports:
-      - "${USERS_PORT}:3002"
+      - "${USERS_PORT:-3002}:3002"
     env_file:
       - .env
     depends_on:
@@ -30,8 +32,9 @@ services:
   gateway:
     build:
       context: ./gateway
+      dockerfile: Dockerfile # O Dockerfile deve estar em ./gateway/
     ports:
-      - "${GATEWAY_PORT}:3000"
+      - "${GATEWAY_PORT:-3000}:3000"
     env_file:
       - .env
     depends_on:
@@ -43,7 +46,7 @@ services:
   postgres:
     image: postgres:14
     ports:
-      - "${POSTGRES_PORT}:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -57,7 +60,7 @@ services:
   redis:
     image: redis:7
     ports:
-      - "${REDIS_PORT}:6379"
+      - "${REDIS_PORT:-6379}:6379"
     volumes:
       - redis_data:/data
       - ./infra/redis/redis.conf:/usr/local/etc/redis/redis.conf
