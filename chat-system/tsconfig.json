@@ -15,13 +15,19 @@
     "paths": {
       "@auth/*": ["services/auth/src/*"],
       "@users/*": ["services/users/src/*"],
-      "@chat/*": ["services/chat/src/*"]
+      "@chat/*": ["services/chat/src/*"],
+      "@middlewares/*": ["infra/providers/middlewares/*"],
+      "@infra/*": ["infra/*"],
+      "@services/*": ["services/*"]
     },
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    
+    // 🔥 Adicionando suporte para os tipos personalizados
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["services/**/src", "gateway/src"],
+  "include": ["services/**/src", "gateway/src", "@types"],
   "exclude": ["node_modules"]
 }

@@ -3,12 +3,22 @@ import jwt from "jsonwebtoken";
 
 const SECRET_KEY = process.env.JWT_SECRET || "default_secret";
 
+// Estendendo a interface Request para incluir `user`
+declare global {
+  namespace Express {
+    interface Request {
+      user?: any; // Idealmente, você pode definir um tipo mais específico aqui
+    }
+  }
+}
+
 export const authenticateToken = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   const authHeader = req.headers.authorization;
+
   if (!authHeader) {
     return res.status(401).json({ error: "Token não fornecido" });
   }
