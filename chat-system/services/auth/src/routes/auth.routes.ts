@@ -1,18 +1,21 @@
-import { Router } from "express";
-import { authMiddleware } from "../middlewares/auth.middleware";
+import { Router, Request, Response } from "express";
+import { authenticateToken } from "../../../../infra/providers/middlewares/authMiddleware";
 
 const router = Router();
 
-// Rota pública
-router.get("/status", (req, res) => {
-  res.json({ message: "Gateway está rodando!" });
+// 📌 Rota pública
+router.get("/status", (req: Response, res: Response) => {
+  res.json({ message: "✅ Gateway está rodando!" });
 });
 
-// Middleware aplicado à rota protegida
-router.use("/api", authMiddleware);
+// 📌 Aplicando Middleware apenas nas rotas protegidas
+router.use("/api", authenticateToken);
 
-router.get("/api/protegida", (req, res) => {
-  res.json({ message: "Rota protegida pelo Gateway!" });
+router.get("/api/protegida", (req: Request, res: Response) => {
+  res.json({
+    message: "🔒 Rota protegida pelo Gateway!",
+    user: req.user, // Retorna dados do usuário autenticado
+  });
 });
 
 export default router;
