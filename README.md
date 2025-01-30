@@ -85,14 +85,6 @@ A documentação completa da API está disponível no **Swagger**, rodando em `/
 - [ ] Otimizar a busca com ElasticSearch
 - [ ] Criar exemplos de requisição e resposta para a API
 - [ ] Adicionar screenshots e diagramas da arquitetura do projeto
-
-## 📢 Contribuição
-Se quiser contribuir, siga estes passos:
-1. **Fork** o repositório
-2. Crie um **branch** (`feature/nova-funcionalidade`)
-3. Faça um **commit** com suas mudanças
-4. **Envie um PR** para análise
-
 ---
 📌 **Autor:** [Euler Fernandes](https://github.com/eulerfernandes) | 🚀 **Desenvolvido para:** Labzz
 
