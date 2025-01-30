@@ -5,20 +5,20 @@
 Desenvolver um backend escalável e seguro para um sistema de **chat em tempo real**, utilizando **boas práticas de desenvolvimento** e garantindo alta disponibilidade.
 
 ## Tecnologias Recomendadas
-- **Linguagem:** Node.js com TypeScript ou PHP 8+
-- **Arquitetura:** Microserviços, monorepo ou monolito
-- **Banco de Dados:** PostgreSQL, MySQL, MongoDB, Cassandra ou ScyllaDB
-- **Cache:** Redis ou Memcache
+- **Linguagem:** Node.js com TypeScript
+- **Arquitetura:** Microserviços, monorepo
+- **Banco de Dados:** PostgreSQL
+- **Cache:** Redis 
 - **Mecanismo de Busca:** ElasticSearch
 - **Comunicação em Tempo Real:** WebSockets (preferencialmente uWebSockets.js)
 - **Autenticação e Segurança:** OAuth2, JWT, 2FA
-- **Monitoramento:** Datadog, NewRelic ou Prometheus
+- **Monitoramento:** Datadog
 
 ## Requisitos do Projeto
 ### 1. **Autenticação Segura**
 - Implementação de OAuth2 para controle de acesso seguro
 - Suporte a autenticação multifator (2FA)
-- Hash de senhas utilizando algoritmos seguros (ex: bcrypt, Argon2)
+- Hash de senhas utilizando algoritmos seguros ex: bcrypt
 
 ### 2. **Gerenciamento de Usuários**
 - CRUD completo de usuários
@@ -35,8 +35,8 @@ Desenvolver um backend escalável e seguro para um sistema de **chat em tempo re
 - Armazenamento seguro de dados sensíveis
 
 ### 5. **Performance e Escalabilidade**
-- Implementação de caching com Redis ou Memcache
-- Uso de filas assíncronas para processamento de eventos (ex: RabbitMQ, BullMQ)
+- Implementação de caching com Redis
+- Uso de filas assíncronas para processamento de eventos (ex: RabbitMQ)
 - Design stateless para facilitar escalabilidade horizontal
 
 ### 6. **Testes e Qualidade de Código**
