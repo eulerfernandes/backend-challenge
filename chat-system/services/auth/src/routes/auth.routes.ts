@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 import { authenticateToken } from "@middlewares/authMiddleware"; // Usando alias para melhor organização
 
 const router = Router();
@@ -11,7 +11,8 @@ router.get("/status", (_req: Request, res: Response) => {
 // 📌 Rota protegida com autenticação aplicada diretamente
 router.get(
   "/api/protegida",
-  authenticateToken,
+  (req: Request, res: Response, next: NextFunction) =>
+    authenticateToken(req, res, next),
   (req: Request, res: Response) => {
     res.json({
       message: "🔒 Rota protegida pelo Gateway!",
