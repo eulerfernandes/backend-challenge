@@ -1,10 +1,11 @@
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import { User } from "../../models/user.model"; // Supondo que você tenha um model de usuário
+import { User } from "@users/model/user.model";
 import TokenUtil from "../utils/token.util";
 
+type AuthData = { email: string; password: string };
+
 class AuthService {
-  async register(data: { email: string; password: string }) {
+  async register(data: AuthData) {
     const { email, password } = data;
 
     // Verificar se o e-mail já está cadastrado
@@ -20,7 +21,7 @@ class AuthService {
     return { id: user.id, email: user.email };
   }
 
-  async login(data: { email: string; password: string }) {
+  async login(data: AuthData) {
     const { email, password } = data;
 
     // Buscar usuário no banco
@@ -32,7 +33,11 @@ class AuthService {
     if (!isPasswordValid) throw new Error("Invalid credentials");
 
     // Gerar token
-    const token = TokenUtil.generateToken({ id: user.id });
+    const token = TokenUtil.generateToken(
+      { id: user.id },
+      process.env.JWT_SECRET || "default_secret",
+      "1h"
+    );
 
     return token;
   }
