@@ -24,8 +24,6 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
-    
-    // 🔥 Adicionando suporte para os tipos personalizados
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
   "include": ["services/**/src", "gateway/src", "@types"],
