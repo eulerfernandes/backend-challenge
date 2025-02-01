@@ -5,20 +5,19 @@ import dotenv from "dotenv";
 dotenv.config();
 
 interface AuthRequest extends Request {
-  user?: { id: string }; // Define um tipo mais específico para o usuário
+  user?: { id: string };
 }
 
 const authMiddleware = (
   req: AuthRequest,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res
-      .status(401)
-      .json({ message: "Access denied. No token provided." });
+    res.status(401).json({ message: "Access denied. No token provided." });
+    return;
   }
 
   const token = authHeader.split(" ")[1];
@@ -27,14 +26,15 @@ const authMiddleware = (
     const secretKey = process.env.JWT_SECRET;
     if (!secretKey) {
       console.error("JWT_SECRET is not defined in environment variables.");
-      return res.status(500).json({ message: "Internal server error." });
+      res.status(500).json({ message: "Internal server error." });
+      return;
     }
 
     const decoded = TokenUtil.verifyToken(token, secretKey) as { id: string };
     req.user = decoded;
     next();
   } catch (error) {
-    return res.status(401).json({ message: "Invalid or expired token." });
+    res.status(401).json({ message: "Invalid or expired token." });
   }
 };
 

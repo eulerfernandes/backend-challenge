@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const user_model_1 = require("../services/users/model/user.model");
+const user_model_1 = require("@users/model/user.model");
 const token_util_1 = __importDefault(require("../utils/token.util"));
 class AuthService {
     async register(data) {

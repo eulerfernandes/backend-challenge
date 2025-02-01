@@ -14,9 +14,9 @@
     "baseUrl": "./",
     "paths": {
       "@auth/*": ["services/auth/src/*"],
-      "@users/*": ["services/users/src/*"],
-      "@chat/*": ["services/chat/src/*"],
-      "@middlewares/*": ["infra/middlewares/*"],
+      "@users/*": ["users/*"],
+      "@chat/*": ["chat/*"],
+      "@middlewares/*": ["services/auth/src/middlewares/*"],
       "@infra/*": ["infra/*"],
       "@services/*": ["services/*"]
     },
@@ -30,6 +30,8 @@
     "services/**/*",
     "gateway/src/**/*",
     "infra/**/*",
+    "chat/**/*",
+    "users/**/*",
     "@types/**/*"
   ],
   "exclude": ["node_modules"]
