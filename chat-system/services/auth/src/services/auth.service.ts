@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { User } from "@users/model/user.model";
+import { User } from "../../services/users/src/model/user.model";
 import TokenUtil from "../utils/token.util";
 
 type AuthData = { email: string; password: string };

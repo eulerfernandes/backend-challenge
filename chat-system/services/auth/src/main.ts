@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import { testElasticConnection } from "../../../infra/elastic/service";
-import logger from "../../../infra/logger"; // Importando o logger
-import authRoutes from "./routes/auth.routes"; // Importando antes de iniciar o servidor
+import { testElasticConnection } from "@infra/elastic/service";
+import logger from "@infra/logger/logger";
+import authRoutes from "./routes/auth.routes"; //
 
 dotenv.config();
 

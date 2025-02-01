@@ -16,7 +16,7 @@
       "@auth/*": ["services/auth/src/*"],
       "@users/*": ["services/users/src/*"],
       "@chat/*": ["services/chat/src/*"],
-      "@middlewares/*": ["infra/providers/middlewares/*"],
+      "@middlewares/*": ["infra/middlewares/*"],
       "@infra/*": ["infra/*"],
       "@services/*": ["services/*"]
     },
@@ -26,6 +26,11 @@
     "noImplicitAny": false,
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["services/**/src", "gateway/src", "@types"],
+  "include": [
+    "services/**/*",
+    "gateway/src/**/*",
+    "infra/**/*",
+    "@types/**/*"
+  ],
   "exclude": ["node_modules"]
 }
